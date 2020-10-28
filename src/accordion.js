@@ -38,7 +38,7 @@ var Accordion = {
 		}
 
 		this.getExpandedItem = function() {
-			var expandedItems = this.$element.find("." + window.Accordion.config.classItem + "." + window.Accordion.config.classExpanded).toArray();
+			var expandedItems = this.$element.children("." + window.Accordion.config.classItem + "." + window.Accordion.config.classExpanded).toArray();
 			if (!expandedItems.length)
 				return null;
 			var $expanded = $(expandedItems[0]);
