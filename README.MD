@@ -10,7 +10,7 @@ In order the accordion to work it must have certain structure with 4 necessary e
 	<li class="js-accordion-item expanded">...</li>
 </ul>
 ```
-By default all classes are named like `js-accordion-*`, but you are free to name them whatever you want. You can change them in `Accordion.config` object. `data-singlemode` attribute indicates that only one item can be showed at a time.
+By default all classes are named like `js-accordion-*`, but you are free to name them whatever you want. You can change them in `Accordion.config` object. `data-singlemode` attribute indicates that only one item can be showed at a time. Also accordions can be nested, i.e. items could contain other accordions.
 
 ### `Accordion.config` options
 
