@@ -38,16 +38,17 @@ var Accordion = {
 		}
 
 		this.getExpandedItem = function() {
-			var expandedItems = this.$element.children("." + window.Accordion.config.classItem + "." + window.Accordion.config.classExpanded).toArray();
-			if (!expandedItems.length)
-				return null;
-			var $expanded = $(expandedItems[0]);
-			for (var i = 1; i < expandedItems.length; i++) {
-				var $tmpExpanded = $(expandedItems[i]);
-				if ($tmpExpanded.parents().length < $expanded.parents().length)
-					$expanded = $tmpExpanded;
+			var items = this.$element.find("." + window.Accordion.config.classItem).toArray();
+			var depths = items.map(function(item) {
+				return $(item).parents().length;
+			});
+			var lowestDepth = Math.min.apply(null, depths);
+			for (var i in items) {
+				var $curItem = $(items[i]);
+				if ($curItem.parents().length === lowestDepth && $curItem.hasClass(window.Accordion.config.classExpanded))
+					return new window.Accordion.Item($curItem);
 			}
-			return new window.Accordion.Item($expanded);
+			return null;
 		}
 	},
 
