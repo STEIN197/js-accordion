@@ -1,6 +1,6 @@
 export default class Accordion {
 
-	private static readonly config = {
+	private static config = {
 		classAccordion: "js-accordion",
 		classItem: "js-accordion-item",
 		classButton: "js-accordion-button",
@@ -15,7 +15,7 @@ export default class Accordion {
 		return this.$element.hasClass("singlemode") || this.$element.data("singlemode");
 	}
 
-	public constructor(element: HTMLElement) {
+	private constructor(element: HTMLElement) {
 		this.$element = $(element);
 	}
 
@@ -31,7 +31,9 @@ export default class Accordion {
 		return null;
 	}
 
-	public static init(): void {
+	public static init(config?: typeof Accordion.config): void {
+		if (config)
+			this.config = {...this.config, ...config};
 		this.toggleVisibility();
 		$("body").delegate(`.${Accordion.config.classButton}`, "click", this.onClick);
 	}
@@ -118,7 +120,7 @@ export default class Accordion {
 			this.$element = $(element);
 		}
 
-		public getItem (): typeof Accordion.Item.prototype {
+		public getItem(): typeof Accordion.Item.prototype {
 			let $item = $(this.$element.closest("." + Accordion.config.classItem));
 			if (!$item.length)
 				throw new Error("There is no item of this button");
