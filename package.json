@@ -1,0 +1,20 @@
+{
+  "name": "@gnail/jq-accordion",
+  "version": "1.0.0",
+  "description": "Simple jQuery accordion widget",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/STEIN197/jq-accordion.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/STEIN197/jq-accordion/issues"
+  },
+  "homepage": "https://github.com/STEIN197/jq-accordion#readme",
+  "devDependencies": {
+    "@types/jquery": "^3.5.5"
+  }
+}
