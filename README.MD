@@ -29,7 +29,9 @@ Also this script brings up with two events: `accordion:beforeToggle` and `accord
 
 ```JS
 $($e => {
-	Accordion.config.classButton = "js-accordion-toggle";
+	Accordion.config({
+		classButton: "js-accordion-toggle"
+	});
 	Accordion.init();
 	$("." + Accordion.config.classItem).on("accordion:beforeToggle", $e => console.log("Item before toggling"));
 	$("." + Accordion.config.classItem).on("accordion:afterToggle", $e => console.log("Item after toggling"));
